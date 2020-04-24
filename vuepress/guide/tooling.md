@@ -45,3 +45,38 @@ You can use this extension to enable SSR and improve i18n performance.
 BabelEdit can translate `json` files, and it can also translate `i18n` custom block of Single-file components.
 
 Read more about BabelEdit in [tutorial page](https://www.codeandweb.com/babeledit/tutorials/how-to-translate-your-vue-app-with-vue-i18n).
+
+### Bootstrap-Vue
+
+[bootstrap-vue](https://bootstrap-vue.org) is a Bootstrap extension for Vuejs.
+
+If, for example, you use a Component like *Table* you must create a method to realize translation.
+
+*singleFileComponentName.vue*
+
+    <i18n>
+    {
+      "en": {
+        "events": "Events"
+      }
+    }
+    </18n>
+
+    <template>
+      <b-table :fields="fields"></b-table>
+    </template>
+    
+    <script>
+    export default {
+      methods: {
+        translate(str) {
+          return this.$i18n.t(str)
+        }
+      },
+      fields() {
+        return [
+          { key: "events", label: this.translate("events") }
+        ]
+      }
+        
+    
